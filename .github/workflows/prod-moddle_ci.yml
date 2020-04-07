@@ -14,7 +14,7 @@ jobs:
    - name: get_version
      run: echo ::set-env name=RELEASE_VERSION::$(echo ${GITHUB_SHA})
 
-   - name: Build test operator version: ${{ env.RELEASE_VERSION }}
+   - name: Build test operator version ${{ env.RELEASE_VERSION }}
      uses: 'Netzlink/build-helm-operator-action@master'
      id: builder
      with:

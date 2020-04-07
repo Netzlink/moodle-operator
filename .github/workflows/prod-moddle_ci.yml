@@ -20,7 +20,7 @@ jobs:
      with:
        repository-name: 'bitnami'
        repository-address: 'https://charts.bitnami.com/bitnami'
-       chart: 'bitnami/apache'
+       chart: 'bitnami/moodle'
        project: 'moodle-operator'
        kind: 'Moodle'
        api-version: 'moodle.netzlink.com/v1alpha1'

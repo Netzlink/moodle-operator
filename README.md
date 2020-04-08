@@ -20,7 +20,7 @@ kubectl get pods -w
 ```
 you should be ready to go!
 # Todo
-- The database configuration for this operator in OpenShift is broken due to security contexts in the bitnami mariadb file. You can only use external ones.
+- For now the default systemaccount in the namespace has to have the anyuid SCC in OpenShift
 # Thanks
 - RedHat for the awesome operator-framework
 - ASO for introducing me to it

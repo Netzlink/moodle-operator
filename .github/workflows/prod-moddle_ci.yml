@@ -5,7 +5,7 @@ on:
  pull_request:
    branches: [ master ]
  schedule:
-   - cron: '0 5 * * *' # Daily at 05:00
+   - cron: '0 1 * * *' # Daily at 01:00
 jobs:
  build:
    runs-on: ubuntu-latest
@@ -24,16 +24,16 @@ jobs:
        project: 'moodle-operator'
        kind: 'Moodle'
        api-version: 'moodle.netzlink.com/v1alpha1'
-       container-image: "docker.netzlink.com/operators/moodle-operator:${{ env.RELEASE_VERSION }}"
+       container-image: "nicokahlert/moodle-operator:${{ env.RELEASE_VERSION }}"
        
    - name: Get the output time
      run: echo "The time was ${{ steps.builder.outputs.time }}"
      
-   - name: Publish docker.netzlink.com/operators/moodle-operator:${{ env.RELEASE_VERSION }}
+   - name: Publish nicokahlert/moodle-operator:${{ env.RELEASE_VERSION }}
      uses: elgohr/Publish-Docker-Github-Action@master
      with:
-       name: docker.netzlink.com/operators/moodle-operator
-       registry: docker.netzlink.com
+       name: nicokahlert/moodle-operator
+       # registry: docker.netzlink.com
        username: ${{ secrets.DOCKER_USERNAME }}
        password: ${{ secrets.DOCKER_PASSWORD }}
        dockerfile: ./moodle-operator/build/Dockerfile

@@ -3,39 +3,15 @@ kind: TriggerTemplate
 metadata:
   name: moodle-operator-triggertemplate
 spec:
-  params:
-  - name: gitrevision
-    description: The git revision
-    default: master
-  - name: gitrepositoryurl
-    description: The git repository url
-  - name: namespace
-    description: The namespace to create the resources
-  - name: gitrepositoryname
-    description: The name of the deployment to be created / patched
-  resourcetemplates:
-  - apiVersion: tekton.dev/v1alpha1
-    kind: PipelineResource
-    metadata:
-      name: source-repo-$(params.gitrepositoryname)-$(uid)
-      namespace: $(params.namespace)
-    spec:
-      type: git
-      params:
-      - name: revision
-        value: $(params.gitrevision)
-      - name: url
-        value: $(params.gitrepositoryurl)
   - apiVersion: tekton.dev/v1alpha1
     kind: PipelineRun
     metadata:
-      name: moodle-operator-$(params.gitrepositoryname)-$(uid)
-      namespace: $(params.namespace)
+      name: moodle-operator-build
+      namespace: moodle
     spec:
       pipelineRef:
         name: build-and-deploy-moodle-operator
-      serviceAccount: 'pipeline'
       resources:
-      - name: moodle-operator-repo
+      - name: source-repo
         resourceRef:
-          name: source-repo-$(params.gitrepositoryname)-$(uid)
+          name: moodle-operator-repo

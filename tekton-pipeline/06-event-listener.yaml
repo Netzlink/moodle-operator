@@ -1,0 +1,12 @@
+ 
+apiVersion: tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: moodle-operator-listener
+spec:
+  serviceAccountName: tekton-triggers-sa
+  triggers:
+  - binding:
+      name: moodle-operator-pipelinebinding
+    template:
+      name: moodle-operator-triggertemplate

@@ -16,7 +16,7 @@ spec:
       containers:
         - name: moodle-operator
           # Replace this with the built image name
-          image: docker.netzlink.com/operators/moodle-operator:4ce71d2bc90354f8364a032f74621d53e1d80b32
+          image: docker.netzlink.com/operators/moodle-operator:c2ba8982080e1348706dfc4cfc59da58d7871298
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE

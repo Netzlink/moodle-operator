@@ -7,11 +7,6 @@ spec:
     resources:
     - type: git
       name: k8s-yamls-repo
-    params:
-    - name: manifest-dir
-      description: The directory in source that contains yaml manifests
-      type: string
-      default: "k8s"
   steps:
   - name: apply
     image: quay.io/openshift/origin-cli:latest
@@ -19,6 +14,7 @@ spec:
     command: ["/bin/bash", "-c"]
     args:
     - |-
-      echo Applying manifests in $(inputs.params.manifest-dir) directory
-      oc apply -f $(inputs.params.manifest-dir)
+      echo Applying manifests in directory
+      oc apply -f moodle-operator/deploy/crds/*crd.yaml -n moodle
+      oc apply -f moodle-operator/deploy/*.yaml -n moodle
       echo -----------------------------------

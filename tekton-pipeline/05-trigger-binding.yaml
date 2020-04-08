@@ -3,12 +3,4 @@ kind: TriggerBinding
 metadata:
   name: moodle-operator-pipelinebinding
 spec:
-  params:
-  - name: gitrevision
-    value: $(body.head_commit.id)
-  - name: namespace
-    value: moodle
-  - name: gitrepositoryurl
-    value: $(body.repository.url)
-  - name: gitrepositoryname
-    value: $(body.repository.name)
+  params: []

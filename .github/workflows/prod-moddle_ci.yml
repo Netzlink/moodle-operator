@@ -24,15 +24,15 @@ jobs:
        project: 'moodle-operator'
        kind: 'Moodle'
        api-version: 'moodle.netzlink.com/v1alpha1'
-       container-image: "netzlink/moodle-operator:${{ env.RELEASE_VERSION }}"
+       container-image: "docker.netzlink.com/operators/moodle-operator:${{ env.RELEASE_VERSION }}"
        
    - name: Get the output time
      run: echo "The time was ${{ steps.builder.outputs.time }}"
      
-   - name: Publish netzlink/moodle-operator:${{ env.RELEASE_VERSION }}
+   - name: Publish docker.netzlink.com/operators/moodle-operator:${{ env.RELEASE_VERSION }}
      uses: elgohr/Publish-Docker-Github-Action@master
      with:
-       name: netzlink/moodle-operator
+       name: docker.netzlink.com/operators/moodle-operator
        username: ${{ secrets.DOCKER_USERNAME }}
        password: ${{ secrets.DOCKER_PASSWORD }}
        dockerfile: ./moodle-operator/build/Dockerfile

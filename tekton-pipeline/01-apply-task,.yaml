@@ -16,5 +16,5 @@ spec:
     - |-
       echo Applying manifests in directory
       oc apply -f moodle-operator/deploy/crds/*crd.yaml -n moodle
-      oc apply -f moodle-operator/deploy/*.yaml -n moodle
+      oc apply -f moodle-operator/deploy/ -n moodle
       echo -----------------------------------

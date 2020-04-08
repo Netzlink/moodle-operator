@@ -3,10 +3,12 @@ kind: TriggerTemplate
 metadata:
   name: moodle-operator-triggertemplate
 spec:
+  params: []
+  resourcetemplates:
   - apiVersion: tekton.dev/v1alpha1
     kind: PipelineRun
     metadata:
-      name: moodle-operator-build
+      name: moodle-operator-pipeline
       namespace: moodle
     spec:
       pipelineRef:

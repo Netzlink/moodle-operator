@@ -1,0 +1,44 @@
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: tekton-moodle-operator-role
+rules:
+- apiGroups:
+  - apiextensions.k8s.io/v1beta1
+  resources:
+  - CustomResourceDefinition
+  verbs:
+  - '*'
+- apiGroups:
+  - apps/v1
+  resources:
+  - Deployment
+  verbs:
+  - '*'
+- apiGroups:
+  - rbac.authorization.k8s.io/v1
+  resources:
+  - Role
+  - RoleBinding
+  verbs:
+  - '*'
+- apiGroups:
+  - v1
+  resources:
+  - ServiceAccount
+  verbs:
+  - '*'
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: tekton-moodle-operator-rolebinding
+subjects:
+- kind: ServiceAccount
+  name: pipeline
+  namespace: moodle
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: tekton-moodle-operator-role

@@ -3,4 +3,4 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   version: 7.3.16
 digest: sha256:184bf5ece3b69c5878b96d0eb4e431aa779dfe128bf9d91e15226bb0632b793a
-generated: "2020-04-08T09:42:56.21615057Z"
+generated: "2020-04-08T09:44:58.506538775Z"

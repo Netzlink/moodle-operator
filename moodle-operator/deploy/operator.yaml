@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moodle-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: moodle-operator
+  template:
+    metadata:
+      labels:
+        name: moodle-operator
+    spec:
+      serviceAccountName: moodle-operator
+      containers:
+        - name: moodle-operator
+          # Replace this with the built image name
+          image: nicokahlert/moodle-operator:4cbd3caff7aa16730c6ea68964cc89d85e14f15a
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "moodle-operator"

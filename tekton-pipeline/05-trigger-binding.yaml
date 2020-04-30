@@ -1,6 +1,0 @@
-apiVersion: tekton.dev/v1alpha1
-kind: TriggerBinding
-metadata:
-  name: moodle-operator-pipelinebinding
-spec:
-  params: []

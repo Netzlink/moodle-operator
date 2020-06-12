@@ -16,7 +16,7 @@ spec:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: bitnami/moodle
-    tag: 3.8.3-debian-10-r0
+    tag: 3.8.3-debian-10-r27
   ingress:
     enabled: false
     hosts:
@@ -52,7 +52,7 @@ spec:
       pullPolicy: IfNotPresent
       registry: docker.io
       repository: bitnami/apache-exporter
-      tag: 0.8.0-debian-10-r41
+      tag: 0.8.0-debian-10-r70
     podAnnotations:
       prometheus.io/port: "9117"
       prometheus.io/scrape: "true"

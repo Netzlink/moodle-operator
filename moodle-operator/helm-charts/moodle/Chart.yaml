@@ -20,4 +20,4 @@ maintainers:
 name: moodle
 sources:
 - https://github.com/bitnami/bitnami-docker-moodle
-version: 7.2.16
+version: 7.2.17

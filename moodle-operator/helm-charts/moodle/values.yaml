@@ -1,24 +1,48 @@
+affinity: {}
 allowEmptyPassword: "yes"
+args: null
+command: null
+commonAnnotations: {}
+commonLabels: {}
+containerPorts:
+  http: 8080
+  https: 8443
+containerSecurityContext:
+  enabled: false
+  runAsUser: 1001
+customLivenessProbe: {}
+customReadinessProbe: {}
+existingSecret: null
 externalDatabase:
   database: bitnami_moodle
   host: null
   password: null
   port: 3306
   user: bn_moodle
+extraDeploy: []
+extraEnvVars: []
+extraEnvVarsCM: null
+extraEnvVarsSecret: null
+extraVolumeMounts: []
+extraVolumes: []
+fullnameOverride: null
 image:
+  debug: false
   pullPolicy: IfNotPresent
+  pullSecrets: null
   registry: docker.io
   repository: bitnami/moodle
-  tag: 3.9.0-debian-10-r9
+  tag: 3.9.1-debian-10-r0
 ingress:
+  annotations: {}
+  certManager: false
   enabled: false
-  hosts:
-  - annotations: null
-    certManager: false
-    name: moodle.local
-    tls: false
-    tlsSecret: moodle.local-tls
+  hostname: drupal.local
+  hosts: null
   secrets: null
+  tls: null
+initContainers: []
+lifecycleHooks: null
 livenessProbe:
   enabled: true
   failureThreshold: 6
@@ -29,6 +53,7 @@ livenessProbe:
 mariadb:
   db:
     name: bitnami_moodle
+    password: ""
     user: bn_moodle
   enabled: true
   master:
@@ -36,27 +61,40 @@ mariadb:
       accessModes:
       - ReadWriteOnce
       enabled: true
+      existingClaim: null
+      hostPath: null
       size: 8Gi
+      storageClass: null
   replication:
     enabled: false
+  rootUser:
+    password: ""
 metrics:
   enabled: false
   image:
     pullPolicy: IfNotPresent
+    pullSecrets: null
     registry: docker.io
     repository: bitnami/apache-exporter
-    tag: 0.8.0-debian-10-r90
+    tag: 0.8.0-debian-10-r97
   podAnnotations:
     prometheus.io/port: "9117"
     prometheus.io/scrape: "true"
 moodleEmail: user@example.com
 moodleSkipInstall: "no"
 moodleUsername: user
+nameOverride: null
+nodeSelector: {}
 persistence:
   accessMode: ReadWriteOnce
   enabled: true
+  hostPath: null
   size: 8Gi
 podAnnotations: {}
+podLabels: {}
+podSecurityContext:
+  enabled: false
+  fsGroup: 1001
 readinessProbe:
   enabled: true
   failureThreshold: 6
@@ -64,6 +102,7 @@ readinessProbe:
   periodSeconds: 5
   successThreshold: 1
   timeoutSeconds: 3
+replicaCount: 1
 resources:
   requests:
     cpu: 300m
@@ -76,3 +115,7 @@ service:
     https: ""
   port: 80
   type: LoadBalancer
+sidecars: []
+tolerations: []
+updateStrategy:
+  type: RollingUpdate

@@ -16,7 +16,7 @@ spec:
       containers:
         - name: moodle-operator
           # Replace this with the built image name
-          image: nicokahlert/moodle-operator:6351409dee531770f6e340fedcfebbc40b3eeabf
+          image: nicokahlert/moodle-operator:d6332ac5ee99ccab18fc91843991aa33352d1f4c
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE

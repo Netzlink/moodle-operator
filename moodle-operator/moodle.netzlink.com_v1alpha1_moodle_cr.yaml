@@ -39,7 +39,7 @@ spec:
     pullSecrets: null
     registry: docker.io
     repository: bitnami/moodle
-    tag: 3.9.1-debian-10-r17
+    tag: 3.9.1-debian-10-r19
   ingress:
     annotations: {}
     certManager: false
@@ -83,7 +83,7 @@ spec:
       pullSecrets: null
       registry: docker.io
       repository: bitnami/apache-exporter
-      tag: 0.8.0-debian-10-r117
+      tag: 0.8.0-debian-10-r141
     podAnnotations:
       prometheus.io/port: "9117"
       prometheus.io/scrape: "true"

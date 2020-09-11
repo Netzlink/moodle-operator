@@ -6,4 +6,4 @@ dependencies:
   repository: https://charts.bitnami.com/bitnami
   version: 0.6.2
 digest: sha256:807085493712c5ca81eebbb7e39abc98e815988ca6cd965f478d511ffe1e630a
-generated: "2020-09-10T01:08:25.339531543Z"
+generated: "2020-09-11T01:08:51.492210861Z"

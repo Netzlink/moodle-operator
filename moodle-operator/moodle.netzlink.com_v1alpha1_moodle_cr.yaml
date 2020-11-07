@@ -44,7 +44,7 @@ spec:
     host: ""
     password: ""
     port: 3306
-    username: bn_moodle
+    user: bn_moodle
   extraDeploy: []
   extraEnvVars: []
   extraEnvVarsCM: null
@@ -103,8 +103,14 @@ spec:
       repository: bitnami/apache-exporter
       tag: 0.8.0-debian-10-r177
     podAnnotations:
-      prometheus.io/port: "9117"
+      prometheus.io/port: '{{ .Values.metrics.service.port }}'
       prometheus.io/scrape: "true"
+    service:
+      annotations:
+        prometheus.io/port: '{{ .Values.metrics.service.port }}'
+        prometheus.io/scrape: "true"
+      port: 9117
+      type: LoadBalancer
   moodleEmail: user@example.com
   moodlePassword: ""
   moodleSkipInstall: false

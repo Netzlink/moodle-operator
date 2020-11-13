@@ -51,7 +51,7 @@ image:
   pullSecrets: null
   registry: docker.io
   repository: bitnami/moodle
-  tag: 3.10.0-debian-10-r0
+  tag: 3.10.0-debian-10-r5
 ingress:
   annotations: {}
   certManager: false
@@ -94,7 +94,7 @@ metrics:
     pullSecrets: null
     registry: docker.io
     repository: bitnami/apache-exporter
-    tag: 0.8.0-debian-10-r204
+    tag: 0.8.0-debian-10-r209
   podAnnotations:
     prometheus.io/port: '{{ .Values.metrics.service.port }}'
     prometheus.io/scrape: "true"

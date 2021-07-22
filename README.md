@@ -24,5 +24,5 @@ you should be ready to go!
 # Thanks
 - RedHat for the awesome operator-framework
 - ASO for introducing me to it
-- Bitnami for there Helm file for moodle
+- Bitnami for their Helm file for moodle
 - CNCF for K8S 
